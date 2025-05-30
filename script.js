@@ -1,4 +1,13 @@
 function operasi(val){
+    const lastChar = display.value.slice(-1);
+    const operators = ["+", "-", "×", "÷"];
+
+    if (operators.includes(val)) {
+        if (operators.includes(lastChar)) {
+            display.value = display.value.slice(0, -1) + val;
+            return;
+        }
+    }
     document.getElementById("display").value += val
 }
 
