@@ -12,7 +12,6 @@ function operasi(val){
             return;
         }
     }
-    
 
     document.getElementById("display").value += val
 }
@@ -22,6 +21,10 @@ function bersihDisplay(){
 }
 
 function kalkulasi(){
+    if (document.getElementById("display").value === ""){
+        return;
+    }
+
     let nilaiDisplay = document.getElementById("display").value
     nilaiDisplay = nilaiDisplay.replace(/×/g, '*').replace(/÷/g, '/');
 
