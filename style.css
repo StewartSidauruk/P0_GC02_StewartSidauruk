@@ -63,7 +63,7 @@ button:hover {
 }
 
 .equal {
-    grid-row: span 4;
+    grid-row: span 2;
     background: #ff6b6b;
     color: white;
 }
@@ -74,4 +74,8 @@ button:hover {
 
 .ac {
     background: #eee;
+}
+
+.ac:hover{
+    background: #ff9b9b;
 }

@@ -13,7 +13,6 @@ function operasi(val){
             return;
         }
 
-        // Cegah operator setelah titik
         if (lastChar === '.') {
             return;
         }
@@ -64,6 +63,40 @@ function kalkulasi(){
     nilaiDisplay = nilaiDisplay.replace(/×/g, '*').replace(/÷/g, '/');
 
     let hasil = eval(nilaiDisplay)
+
+    if (eval(nilaiDisplay) === Infinity || eval(nilaiDisplay) === -Infinity) {
+        display.value = "Tidak bisa dibagi 0.";
+        return;
+    }
     
     document.getElementById("display").value = hasil
+}
+
+function hapus() {
+    const lastChar = display.value.slice(-1);
+    const operators = ["+", "-", "×", "÷"];
+
+    if(operators.includes(lastChar)){
+        return;
+    }
+
+    document.getElementById("display").value = document.getElementById("display").value.slice(0, -1);
+}
+
+function negate() {
+    const display = document.getElementById("display");
+
+    if (display.value === "") {
+        return;
+    }
+
+    const parts = display.value.split(/([\+\-×÷])/);
+    let last = parts.pop();
+
+    if (!isNaN(last) && last !== "") {
+        last = `(-${last})`;
+    }
+
+    parts.push(last);
+    display.value = parts.join('');
 }
