@@ -41,6 +41,12 @@ function operasi(val){
         return;
     }
 
+    if(val === '.'){
+        if (display.value === ""){
+            return;
+        }
+    }
+
     document.getElementById("display").value += val
 }
 
@@ -73,13 +79,6 @@ function kalkulasi(){
 }
 
 function hapus() {
-    const lastChar = display.value.slice(-1);
-    const operators = ["+", "-", "×", "÷"];
-
-    if(operators.includes(lastChar)){
-        return;
-    }
-
     document.getElementById("display").value = document.getElementById("display").value.slice(0, -1);
 }
 
